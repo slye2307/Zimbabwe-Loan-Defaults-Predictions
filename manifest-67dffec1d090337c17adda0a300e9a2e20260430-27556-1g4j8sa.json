@@ -1,0 +1,47 @@
+{
+  "description": "This is a system generated manifest of files expected to be present in this zip. It can be safely deleted.",
+  "metadata": {
+    "generated_at": "2026-04-30T11:06:31+00:00",
+    "trigger": {
+      "file_hashid": "unknown",
+      "action": "unknown"
+    }
+  },
+  "manifest": [
+    {
+      "filename": "SampleSubmission.csv",
+      "filesize": 129780,
+      "description": "The file shows the structure and format of the submission file.",
+      "created_at": "2026-04-30 11:06:23 UTC",
+      "updated_at": "2026-04-30 11:06:31 UTC"
+    },
+    {
+      "filename": "VariableDefinitions.csv",
+      "filesize": 2605,
+      "description": "provides a description of the dataset.",
+      "created_at": "2026-04-30 10:38:32 UTC",
+      "updated_at": "2026-04-30 10:38:37 UTC"
+    },
+    {
+      "filename": "Starter_Notebook.ipynb",
+      "filesize": 382521,
+      "description": "This starter notebook shows you how to get started.",
+      "created_at": "2026-04-30 11:05:19 UTC",
+      "updated_at": "2026-04-30 11:05:24 UTC"
+    },
+    {
+      "filename": "Train.csv",
+      "filesize": 6576078,
+      "description": "This file is the training set.",
+      "created_at": "2026-04-30 11:06:00 UTC",
+      "updated_at": "2026-04-30 11:06:10 UTC"
+    },
+    {
+      "filename": "Test.csv",
+      "filesize": 2237705,
+      "description": "This file is the test set which should be used by your trained model for prediction.",
+      "created_at": "2026-04-30 11:05:38 UTC",
+      "updated_at": "2026-04-30 11:05:48 UTC"
+    }
+  ]
+}
