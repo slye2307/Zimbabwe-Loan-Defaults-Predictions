@@ -14,6 +14,7 @@ MODEL_PATH = APP_DIR / "model.pkl"
 FEATURES_PATH = APP_DIR / "features.pkl"
 TRAIN_PATH = APP_DIR / "Train.csv"
 OPENAI_MODEL_DEFAULT = "gpt-4o-mini"
+DEMO_URL = "https://zimbabwe-loan-defaults-predictions-fndx9su4lrdlyen2xfuahg.streamlit.app/"
 
 PRIMARY = "#2E7D32"
 SECONDARY = "#FFC107"
@@ -147,6 +148,20 @@ st.markdown(
         color: {MUTED_TEXT};
         font-size: 1.05rem;
         margin-bottom: 1.4rem;
+    }}
+    .demo-link {{
+        display: inline-block;
+        background: {PRIMARY};
+        color: white !important;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        font-weight: 800;
+        text-decoration: none !important;
+        margin: 0 0 1.2rem 0;
+    }}
+    .demo-link:hover {{
+        background: #1b5e20;
+        color: white !important;
     }}
     [data-testid="stForm"] {{
         background: {SURFACE};
@@ -812,6 +827,10 @@ def home_page() -> None:
         repayment information, then keeps a human reviewer in the loop.
         </p>
         """,
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f'<a class="demo-link" href="{DEMO_URL}" target="_blank">Access the live demo</a>',
         unsafe_allow_html=True,
     )
 

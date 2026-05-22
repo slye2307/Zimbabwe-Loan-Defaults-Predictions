@@ -4,6 +4,12 @@ This is a Streamlit app for estimating loan default risk for Zimbabwe banking-se
 
 The app is meant to support credit-risk screening. It should not replace a final human credit decision.
 
+## Live Demo
+
+If you want to access the demo, press this link:
+
+https://zimbabwe-loan-defaults-predictions-fndx9su4lrdlyen2xfuahg.streamlit.app/
+
 ## What The App Includes
 
 - Single-loan risk prediction with plain-English risk factors and review steps.
