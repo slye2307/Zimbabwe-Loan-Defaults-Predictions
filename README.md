@@ -4,6 +4,13 @@ This is a Streamlit app for estimating loan default risk for Zimbabwe banking-se
 
 The app is meant to support credit-risk screening. It should not replace a final human credit decision.
 
+## What The App Includes
+
+- Single-loan risk prediction with plain-English risk factors and review steps.
+- Batch CSV scoring for files with the same columns as `Test.csv`.
+- Portfolio dashboard charts from `Train.csv`.
+- Optional AI assistant, Brighty, for explaining scores and review next steps.
+
 ## Project Structure
 
 ```text
@@ -49,6 +56,17 @@ The app needs these files in the same folder as `app.py`:
 Without them, the model or dashboard will not load.
 
 Before making the repository public, confirm that the competition rules allow you to publish `Train.csv`. If not, keep the data private and publish only the code plus instructions for users to place the dataset beside `app.py`.
+
+## Optional AI Chat
+
+The `AI Assistant` page works in built-in guide mode by default. For full AI responses, add an OpenAI API key as a Streamlit secret or environment variable:
+
+```toml
+OPENAI_API_KEY = "your-api-key"
+OPENAI_MODEL = "gpt-4o-mini"
+```
+
+Locally, Streamlit reads secrets from `.streamlit/secrets.toml`. On Streamlit Cloud, add the same values in the app secrets settings. The app keeps working without these values, but the assistant will answer only common built-in guidance questions.
 
 ## How To Publish On GitHub
 

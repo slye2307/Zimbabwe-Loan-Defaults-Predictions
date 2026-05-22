@@ -4,3 +4,4 @@ numpy==2.4.4
 plotly==6.6.0
 catboost==1.2.10
 scikit-learn==1.8.0
+openai>=2.0.0
