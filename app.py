@@ -335,6 +335,11 @@ st.markdown(
         font-weight: 800;
         margin-bottom: 0.7rem;
     }}
+    .status-pill.status-guide {{
+        background: #fffbeb;
+        color: #92400e !important;
+        border-color: #fcd34d;
+    }}
     .tiny-muted {{
         color: {MUTED_TEXT} !important;
         font-size: 0.9rem;
@@ -1322,7 +1327,13 @@ def generate_assistant_reply(
 def assistant_page() -> None:
     api_key = get_config_value("OPENAI_API_KEY")
     model = get_config_value("OPENAI_MODEL", OPENAI_MODEL_DEFAULT)
-    mode_label = "OpenAI connected" if api_key else "Built-in guide mode"
+    mode_label = "Brighty is ready" if api_key else "Guide mode"
+    status_class = "status-ready" if api_key else "status-guide"
+    status_note = (
+        f"Ask natural questions about risk scores, borrower review, and dashboard patterns. Model: {model}."
+        if api_key
+        else "Add OPENAI_API_KEY in Streamlit secrets to unlock full AI chat. Until then, Brighty can still answer common app questions."
+    )
     prediction_context = st.session_state.get("latest_prediction_context")
 
     st.markdown(
@@ -1344,11 +1355,10 @@ def assistant_page() -> None:
         st.markdown(
             f"""
             <div class="assistant-panel">
-                <div class="status-pill">{mode_label}</div>
+                <div class="insight-title">Assistant Status</div>
+                <div class="status-pill {status_class}">{mode_label}</div>
                 <p class="tiny-muted">
-                Current model: <strong>{model}</strong><br>
-                Add <strong>OPENAI_API_KEY</strong> in Streamlit secrets or your
-                environment to enable full AI responses.
+                {status_note}
                 </p>
             </div>
             """,
@@ -1367,21 +1377,21 @@ def assistant_page() -> None:
                 """,
                 unsafe_allow_html=True,
             )
-        st.markdown("#### Quick questions")
+        st.markdown("#### Suggested questions")
         quick_questions = []
         if prediction_context:
             quick_questions.append("Explain the latest prediction")
         quick_questions += [
-            "What does a high risk score mean?",
-            "How can a borrower lower risk?",
-            "What should a credit officer review next?",
+            "Explain a high-risk score",
+            "Suggest ways to lower risk",
+            "List the next review checks",
             "How do I enable full AI chat?",
         ]
         for idx, item in enumerate(quick_questions):
             if st.button(item, key=f"quick_question_{idx}", use_container_width=True):
                 st.session_state.assistant_pending_prompt = item
 
-        if st.button("Clear chat", use_container_width=True):
+        if st.button("Start over", use_container_width=True):
             st.session_state.assistant_messages = [
                 {"role": "assistant", "content": INITIAL_ASSISTANT_MESSAGE.strip()}
             ]
